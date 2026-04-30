@@ -1,229 +1,51 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
 
 const services = [
-  {
-    icon: "⬡",
-    title: "Cloud Infrastructure",
-    desc: "Multi-region, fault-tolerant infrastructure designed for zero-downtime deployments. We architect systems that handle peak loads without breaking a sweat.",
-    tags: ["Kubernetes", "Terraform", "AWS / GCP"],
-    accent: "#00D4FF",
-  },
-  {
-    icon: "◈",
-    title: "AI & Machine Learning",
-    desc: "End-to-end ML pipelines: data ingestion, model training, deployment, and monitoring. From LLM fine-tuning to real-time inference at scale.",
-    tags: ["PyTorch", "MLflow", "Vector DBs"],
-    accent: "#7B61FF",
-  },
-  {
-    icon: "◉",
-    title: "Platform Engineering",
-    desc: "Internal developer platforms that multiply team velocity. Golden paths, self-service tooling, and the automation that lets engineers ship faster.",
-    tags: ["Backstage", "ArgoCD", "GitHub Actions"],
-    accent: "#FF6B6B",
-  },
-  {
-    icon: "◎",
-    title: "Security & Compliance",
-    desc: "SOC 2, ISO 27001, and GDPR-ready systems by design. Security isn't bolted on — it's baked into every layer of our architecture.",
-    tags: ["Zero Trust", "SIEM", "Pen Testing"],
-    accent: "#00D4FF",
-  },
-  {
-    icon: "◇",
-    title: "Data Engineering",
-    desc: "Scalable data lakehouse architectures, streaming pipelines, and business intelligence stacks that turn raw events into actionable insight.",
-    tags: ["Spark", "dbt", "Snowflake"],
-    accent: "#7B61FF",
-  },
-  {
-    icon: "◆",
-    title: "Product Development",
-    desc: "Full-stack product teams embedded in your org. We design, build, and ship user-facing products with a focus on performance and craft.",
-    tags: ["Next.js", "React Native", "GraphQL"],
-    accent: "#FF6B6B",
-  },
+  { name: "Scalling", desc: "Membersihkan karang gigi dan plak untuk menjaga kesehatan gusi.", icon: "🦷", bg: "#EFF6FF" },
+  { name: "Behel Gigi", desc: "Merapikan susunan gigi dengan kawat gigi yang estetik dan nyaman.", icon: "✨", bg: "#F0FDF4" },
+  { name: "Gigi Tiruan", desc: "Penggantian gigi yang hilang dengan protesa yang natural dan fungsional.", icon: "😁", bg: "#FFF7ED" },
+  { name: "Cabut Gigi", desc: "Pencabutan gigi dengan teknik minimal invasif untuk mengurangi rasa sakit.", icon: "⚕️", bg: "#FFF1F2" },
+  { name: "Bleaching", desc: "Pemutihan gigi profesional untuk senyum yang lebih cerah dan percaya diri.", icon: "💎", bg: "#F5F3FF" },
+  { name: "Implant", desc: "Penggantian gigi permanen dengan implan titanium yang kuat dan alami.", icon: "🔬", bg: "#ECFEFF" },
+  { name: "Veneer", desc: "Lapisan porselen tipis untuk memperbaiki bentuk dan warna gigi secara estetik.", icon: "⭐", bg: "#FEFCE8" },
+  { name: "Pemeriksaan Umum", desc: "Pemeriksaan menyeluruh kesehatan gigi dan mulut oleh dokter berpengalaman.", icon: "📋", bg: "#F0FDF4" },
 ];
 
 export default function Services() {
-  const ref = useRef<HTMLElement>(null);
-  const [visible, setVisible] = useState(false);
-  const [hovered, setHovered] = useState<number | null>(null);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setVisible(true); },
-      { threshold: 0.1 }
-    );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-
   return (
-    <section
-      ref={ref}
-      id="services"
-      style={{
-        padding: "8rem 2rem",
-        background: "linear-gradient(to bottom, transparent, rgba(14,17,24,0.5), transparent)",
-      }}
-    >
+    <section id="layanan" style={{ background: "#f8fafc", padding: "5rem 2rem" }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-        {/* Header */}
-        <div
-          style={{
-            textAlign: "center",
-            marginBottom: "5rem",
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(30px)",
-            transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
-          }}
-        >
-          <div
-            style={{
-              fontSize: "0.75rem",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              color: "#00D4FF",
-              marginBottom: "1rem",
-              fontWeight: 600,
-            }}
-          >
-            What We Do
-          </div>
-          <h2
-            style={{
-              fontFamily: "'Syne', sans-serif",
-              fontSize: "clamp(2rem, 4vw, 3.2rem)",
-              fontWeight: 800,
-              letterSpacing: "-0.03em",
-              color: "#F0F4FF",
-            }}
-          >
-            Services built for{" "}
-            <span
-              style={{
-                background: "linear-gradient(135deg, #00D4FF, #7B61FF)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              scale
-            </span>
+        <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+          <p style={{ fontSize: "0.8rem", color: "#1D4ED8", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.75rem" }}>LAYANAN KAMI</p>
+          <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: 800, color: "#111827", marginBottom: "0.75rem" }}>
+            Layanan Gigi Lengkap di Satu Tempat
           </h2>
+          <p style={{ color: "#6B7280", maxWidth: "500px", margin: "0 auto", lineHeight: 1.6 }}>
+            Scalling, Bleaching, Behel, Implant, sampai Veneer. Semua ada di HDC Cirebon. Ditangani dokter spesialis, teknologi terkini, pasti terjangkau.
+          </p>
         </div>
 
-        {/* Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "1.5px",
-            background: "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(255,255,255,0.04)",
-            borderRadius: "24px",
-            overflow: "hidden",
-          }}
-        >
-          {services.map((svc, i) => (
-            <div
-              key={i}
-              onMouseEnter={() => setHovered(i)}
-              onMouseLeave={() => setHovered(null)}
-              style={{
-                padding: "2.5rem",
-                background: hovered === i ? "rgba(255,255,255,0.04)" : "#080A0F",
-                transition: "all 0.3s ease",
-                cursor: "default",
-                opacity: visible ? 1 : 0,
-                transform: visible ? "translateY(0)" : "translateY(20px)",
-                transitionDelay: `${i * 0.05 + 0.2}s`,
-                position: "relative",
-                overflow: "hidden",
-              }}
-            >
-              {/* Hover glow */}
-              {hovered === i && (
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "-50px",
-                    left: "-50px",
-                    width: "200px",
-                    height: "200px",
-                    borderRadius: "50%",
-                    background: `radial-gradient(circle, ${svc.accent}12, transparent 70%)`,
-                    pointerEvents: "none",
-                  }}
-                />
-              )}
-
-              <div
-                style={{
-                  fontSize: "2rem",
-                  color: svc.accent,
-                  marginBottom: "1.25rem",
-                  display: "block",
-                  filter: hovered === i ? `drop-shadow(0 0 8px ${svc.accent})` : "none",
-                  transition: "filter 0.3s",
-                }}
-              >
-                {svc.icon}
-              </div>
-
-              <h3
-                style={{
-                  fontFamily: "'Syne', sans-serif",
-                  fontSize: "1.15rem",
-                  fontWeight: 700,
-                  color: "#F0F4FF",
-                  marginBottom: "0.75rem",
-                  letterSpacing: "-0.02em",
-                }}
-              >
-                {svc.title}
-              </h3>
-
-              <p style={{ color: "#6B7A99", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: "1.5rem" }}>
-                {svc.desc}
-              </p>
-
-              <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-                {svc.tags.map((t) => (
-                  <span
-                    key={t}
-                    style={{
-                      fontSize: "0.7rem",
-                      color: svc.accent,
-                      border: `1px solid ${svc.accent}30`,
-                      borderRadius: "6px",
-                      padding: "0.25rem 0.6rem",
-                      letterSpacing: "0.05em",
-                    }}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
+        <div className="services-grid">
+          {services.map((s) => (
+            <div key={s.name} className="service-card" style={{ background: "#fff", borderRadius: "14px", padding: "1.5rem", border: "1.5px solid #e5e7eb", cursor: "pointer", transition: "transform 0.2s, box-shadow 0.2s" }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 12px 28px rgba(0,0,0,0.08)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "none"; }}>
+              <div style={{ width: "52px", height: "52px", borderRadius: "12px", background: s.bg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.5rem", marginBottom: "1rem" }}>{s.icon}</div>
+              <h3 style={{ fontWeight: 700, fontSize: "1rem", color: "#111827", marginBottom: "0.5rem" }}>{s.name}</h3>
+              <p style={{ fontSize: "0.83rem", color: "#6B7280", lineHeight: 1.6 }}>{s.desc}</p>
             </div>
           ))}
         </div>
-      </div>
 
-      <style>{`
-        @media (max-width: 1024px) {
-          #services div[style*="grid-template-columns: repeat(3"] {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-        @media (max-width: 640px) {
-          #services div[style*="grid-template-columns: repeat(3"] {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
+        <div style={{ textAlign: "center", marginTop: "2.5rem" }}>
+          <button style={{ background: "none", border: "2px solid #1D4ED8", borderRadius: "10px", padding: "0.75rem 2rem", color: "#1D4ED8", fontWeight: 700, fontSize: "0.95rem", cursor: "pointer", fontFamily: "inherit", transition: "all 0.2s" }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "#1D4ED8"; e.currentTarget.style.color = "#fff"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "none"; e.currentTarget.style.color = "#1D4ED8"; }}>
+            Lihat Selengkapnya
+          </button>
+        </div>
+      </div>
+      <style>{`.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}@media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr)!important}}@media(max-width:480px){.services-grid{grid-template-columns:1fr!important}}`}</style>
     </section>
   );
 }

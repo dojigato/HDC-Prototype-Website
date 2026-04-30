@@ -1,299 +1,61 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-
-export default function Contact() {
-  const ref = useRef<HTMLElement>(null);
-  const [visible, setVisible] = useState(false);
-  const [formState, setFormState] = useState({ name: "", email: "", company: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setVisible(true); },
-      { threshold: 0.1 }
-    );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
-  const inputStyle = {
-    width: "100%",
-    background: "rgba(255,255,255,0.04)",
-    border: "1px solid rgba(255,255,255,0.08)",
-    borderRadius: "12px",
-    padding: "0.875rem 1.25rem",
-    color: "#F0F4FF",
-    fontFamily: "'DM Sans', sans-serif",
-    fontSize: "0.95rem",
-    outline: "none",
-    transition: "border-color 0.2s, box-shadow 0.2s",
-  };
-
+export default function Location() {
   return (
-    <section
-      ref={ref}
-      id="contact"
-      style={{
-        padding: "8rem 2rem",
-        background: "linear-gradient(to bottom, transparent, rgba(0,212,255,0.02), transparent)",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1100px",
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "6rem",
-          alignItems: "start",
-          opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0)" : "translateY(40px)",
-          transition: "all 0.9s cubic-bezier(0.16, 1, 0.3, 1)",
-        }}
-      >
-        {/* Left */}
-        <div>
-          <div
-            style={{
-              fontSize: "0.75rem",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              color: "#00D4FF",
-              marginBottom: "1rem",
-              fontWeight: 600,
-            }}
-          >
-            Get in Touch
-          </div>
-          <h2
-            style={{
-              fontFamily: "'Syne', sans-serif",
-              fontSize: "clamp(2rem, 4vw, 3rem)",
-              fontWeight: 800,
-              letterSpacing: "-0.03em",
-              color: "#F0F4FF",
-              lineHeight: 1.1,
-              marginBottom: "1.5rem",
-            }}
-          >
-            Ready to build
-            <br />
-            <span
-              style={{
-                background: "linear-gradient(135deg, #00D4FF, #7B61FF)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              something great?
-            </span>
+    <section id="lokasi" style={{ background: "#f8fafc", padding: "5rem 2rem" }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+        <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+          <p style={{ fontSize: "0.8rem", color: "#1D4ED8", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.75rem" }}>LOKASI</p>
+          <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: 800, color: "#111827" }}>
+            Akses Mudah dari Berbagai Area di Cirebon
           </h2>
-          <p style={{ color: "#6B7A99", lineHeight: 1.8, fontSize: "1.05rem", marginBottom: "3rem" }}>
-            Whether you're scaling an existing system or starting from scratch, our team
-            is ready to help you architect the right solution.
-          </p>
-
-          {/* Contact info */}
-          {[
-            { label: "Email", value: "hello@nexcore.io" },
-            { label: "Location", value: "San Francisco · London · Singapore" },
-            { label: "Response Time", value: "Within 24 hours" },
-          ].map((item) => (
-            <div
-              key={item.label}
-              style={{
-                display: "flex",
-                gap: "1.5rem",
-                alignItems: "flex-start",
-                marginBottom: "1.5rem",
-                paddingBottom: "1.5rem",
-                borderBottom: "1px solid rgba(255,255,255,0.05)",
-              }}
-            >
-              <div style={{ fontSize: "0.75rem", color: "#00D4FF", fontWeight: 600, letterSpacing: "0.08em", marginTop: "2px", minWidth: "80px" }}>
-                {item.label.toUpperCase()}
-              </div>
-              <div style={{ color: "#F0F4FF", fontSize: "0.95rem" }}>{item.value}</div>
-            </div>
-          ))}
         </div>
 
-        {/* Right - Form */}
-        <div
-          style={{
-            background: "rgba(14,17,24,0.8)",
-            border: "1px solid rgba(255,255,255,0.06)",
-            borderRadius: "24px",
-            padding: "2.5rem",
-            backdropFilter: "blur(20px)",
-          }}
-        >
-          {submitted ? (
-            <div style={{ textAlign: "center", padding: "3rem 0" }}>
-              <div
-                style={{
-                  width: "64px",
-                  height: "64px",
-                  borderRadius: "50%",
-                  background: "rgba(0,212,255,0.1)",
-                  border: "1px solid rgba(0,212,255,0.3)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "1.5rem",
-                  margin: "0 auto 1.5rem",
-                }}
-              >
-                ✓
+        <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: "2rem", alignItems: "start" }}>
+          {/* Map placeholder */}
+          <div style={{ borderRadius: "16px", overflow: "hidden", height: "360px", background: "#e2e8f0", border: "1.5px solid #cbd5e1", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: "1rem" }}>
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="22" r="10" stroke="#94A3B8" strokeWidth="3" fill="none" />
+              <path d="M24 32C24 32 14 42 14 48H34C34 42 24 32 24 32Z" fill="#94A3B8" opacity="0.4" />
+              <circle cx="24" cy="22" r="4" fill="#1D4ED8" />
+            </svg>
+            <p style={{ color: "#94A3B8", fontSize: "0.9rem" }}>Peta akan ditampilkan di sini</p>
+            <a href="https://maps.google.com/?q=Jl.+Siliwangi+No.119+Cirebon" target="_blank" rel="noopener noreferrer"
+              style={{ background: "#1D4ED8", color: "#fff", borderRadius: "8px", padding: "0.5rem 1.2rem", fontSize: "0.85rem", fontWeight: 600, textDecoration: "none", transition: "opacity 0.2s" }}>
+              Buka di Google Maps →
+            </a>
+          </div>
+
+          {/* Info card */}
+          <div style={{ background: "#fff", borderRadius: "16px", padding: "2rem", border: "1.5px solid #e5e7eb", boxShadow: "0 4px 16px rgba(0,0,0,0.06)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
+              <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: "#EFF6FF", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.2rem" }}>🏥</div>
+              <div>
+                <div style={{ fontWeight: 800, fontSize: "1rem", color: "#111827" }}>HDC Cirebon</div>
+                <div style={{ fontSize: "0.8rem", color: "#1D4ED8", fontWeight: 600 }}>Klinik Gigi</div>
               </div>
-              <h3
-                style={{
-                  fontFamily: "'Syne', sans-serif",
-                  fontSize: "1.5rem",
-                  fontWeight: 700,
-                  color: "#F0F4FF",
-                  marginBottom: "0.75rem",
-                }}
-              >
-                Message sent!
-              </h3>
-              <p style={{ color: "#6B7A99" }}>We'll get back to you within 24 hours.</p>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: "1rem" }}>
-                <div>
-                  <label style={{ display: "block", fontSize: "0.75rem", color: "#6B7A99", marginBottom: "0.5rem", letterSpacing: "0.05em" }}>
-                    NAME
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formState.name}
-                    onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                    placeholder="Your name"
-                    style={inputStyle}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = "rgba(0,212,255,0.4)";
-                      e.target.style.boxShadow = "0 0 0 3px rgba(0,212,255,0.06)";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                      e.target.style.boxShadow = "none";
-                    }}
-                  />
-                </div>
-                <div>
-                  <label style={{ display: "block", fontSize: "0.75rem", color: "#6B7A99", marginBottom: "0.5rem", letterSpacing: "0.05em" }}>
-                    EMAIL
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={formState.email}
-                    onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                    placeholder="you@company.com"
-                    style={inputStyle}
-                    onFocus={(e) => {
-                      e.target.style.borderColor = "rgba(0,212,255,0.4)";
-                      e.target.style.boxShadow = "0 0 0 3px rgba(0,212,255,0.06)";
-                    }}
-                    onBlur={(e) => {
-                      e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                      e.target.style.boxShadow = "none";
-                    }}
-                  />
-                </div>
-              </div>
 
-              <div style={{ marginBottom: "1rem" }}>
-                <label style={{ display: "block", fontSize: "0.75rem", color: "#6B7A99", marginBottom: "0.5rem", letterSpacing: "0.05em" }}>
-                  COMPANY
-                </label>
-                <input
-                  type="text"
-                  value={formState.company}
-                  onChange={(e) => setFormState({ ...formState, company: e.target.value })}
-                  placeholder="Your company"
-                  style={inputStyle}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "rgba(0,212,255,0.4)";
-                    e.target.style.boxShadow = "0 0 0 3px rgba(0,212,255,0.06)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                    e.target.style.boxShadow = "none";
-                  }}
-                />
+            {[
+              { icon: "📍", label: "Alamat", value: "Jl. Siliwangi No.119, Kebonbaru, Kec. Kejaksan, Kota Cirebon, Jawa Barat 45121" },
+              { icon: "📞", label: "Telepon", value: "0812-2234-6161" },
+              { icon: "🕐", label: "Jam Buka", value: "Senin – Sabtu: 09.00 – 21.00\nMinggu: 09.00 – 16.00" },
+            ].map((item) => (
+              <div key={item.label} style={{ marginBottom: "1.25rem", paddingBottom: "1.25rem", borderBottom: "1px solid #f1f5f9" }}>
+                <div style={{ fontSize: "0.75rem", color: "#6B7280", fontWeight: 600, marginBottom: "0.35rem", letterSpacing: "0.05em" }}>{item.icon} {item.label}</div>
+                <div style={{ fontSize: "0.9rem", color: "#111827", lineHeight: 1.6, whiteSpace: "pre-line" }}>{item.value}</div>
               </div>
+            ))}
 
-              <div style={{ marginBottom: "1.5rem" }}>
-                <label style={{ display: "block", fontSize: "0.75rem", color: "#6B7A99", marginBottom: "0.5rem", letterSpacing: "0.05em" }}>
-                  MESSAGE
-                </label>
-                <textarea
-                  required
-                  rows={5}
-                  value={formState.message}
-                  onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                  placeholder="Tell us about your project..."
-                  style={{ ...inputStyle, resize: "vertical", lineHeight: 1.6 }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "rgba(0,212,255,0.4)";
-                    e.target.style.boxShadow = "0 0 0 3px rgba(0,212,255,0.06)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                    e.target.style.boxShadow = "none";
-                  }}
-                />
-              </div>
-
-              <button
-                type="submit"
-                style={{
-                  width: "100%",
-                  background: "linear-gradient(135deg, #00D4FF, #7B61FF)",
-                  border: "none",
-                  borderRadius: "12px",
-                  padding: "1rem",
-                  color: "#000",
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontWeight: 700,
-                  fontSize: "1rem",
-                  cursor: "pointer",
-                  transition: "all 0.3s",
-                  boxShadow: "0 0 30px rgba(0,212,255,0.2)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.opacity = "0.9";
-                  e.currentTarget.style.transform = "translateY(-1px)";
-                  e.currentTarget.style.boxShadow = "0 0 50px rgba(0,212,255,0.35)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.opacity = "1";
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 0 30px rgba(0,212,255,0.2)";
-                }}
-              >
-                Send Message →
-              </button>
-            </form>
-          )}
+            <a href="https://maps.google.com/?q=Jl.+Siliwangi+No.119+Cirebon" target="_blank" rel="noopener noreferrer"
+              style={{ display: "block", textAlign: "center", background: "#1D4ED8", color: "#fff", borderRadius: "10px", padding: "0.75rem", fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", transition: "opacity 0.2s" }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.opacity = "0.85")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.opacity = "1")}>
+              Buka Maps
+            </a>
+          </div>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          #contact > div { grid-template-columns: 1fr !important; gap: 3rem !important; }
-        }
-      `}</style>
+      <style>{`@media(max-width:768px){section#lokasi>div>div[style*="grid-template-columns"]{grid-template-columns:1fr!important}}`}</style>
     </section>
   );
 }

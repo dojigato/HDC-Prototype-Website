@@ -1,175 +1,39 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-
 export default function About() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setVisible(true); },
-      { threshold: 0.15 }
-    );
-    if (sectionRef.current) obs.observe(sectionRef.current);
-    return () => obs.disconnect();
-  }, []);
-
-  const milestones = [
-    { year: "2016", title: "Founded", desc: "Started as a 4-person infrastructure consulting team." },
-    { year: "2018", title: "Series A", desc: "Raised $12M to build our proprietary AI runtime." },
-    { year: "2021", title: "Global Expansion", desc: "Opened offices in Singapore, Berlin, and São Paulo." },
-    { year: "2024", title: "500+ Clients", desc: "Now powering 1 in 5 Fortune 500 cloud deployments." },
-  ];
-
   return (
-    <section
-      ref={sectionRef}
-      id="about"
-      style={{
-        padding: "8rem 2rem",
-        maxWidth: "1200px",
-        margin: "0 auto",
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(40px)",
-        transition: "all 0.9s cubic-bezier(0.16, 1, 0.3, 1)",
-      }}
-    >
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
-        {/* Left */}
+    <section id="tentang" style={{ background: "#0F172A", padding: "5rem 2rem" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
         <div>
-          <div
-            style={{
-              fontSize: "0.75rem",
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              color: "#00D4FF",
-              marginBottom: "1rem",
-              fontWeight: 600,
-            }}
-          >
-            About NexCore
-          </div>
-          <h2
-            style={{
-              fontFamily: "'Syne', sans-serif",
-              fontSize: "clamp(2rem, 4vw, 3.2rem)",
-              fontWeight: 800,
-              lineHeight: 1.1,
-              letterSpacing: "-0.03em",
-              color: "#F0F4FF",
-              marginBottom: "1.5rem",
-            }}
-          >
-            We don't just build
-            <br />
-            <span
-              style={{
-                background: "linear-gradient(135deg, #00D4FF, #7B61FF)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              technology.
-            </span>
-            <br />
-            We build trust.
+          <p style={{ fontSize: "0.8rem", color: "#60A5FA", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1rem" }}>TENTANG HDC</p>
+          <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 800, color: "#ffffff", lineHeight: 1.2, marginBottom: "1.25rem" }}>
+            Klinik Gigi Cirebon yang Bikin Senyummu Makin Percaya Diri
           </h2>
-          <p style={{ color: "#6B7A99", lineHeight: 1.8, marginBottom: "1.5rem", fontSize: "1.05rem" }}>
-            NexCore is a technology company built around one principle: infrastructure should be
-            invisible. When systems work perfectly, teams focus on what matters — building products,
-            serving customers, and growing.
+          <p style={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.8, marginBottom: "1rem", fontSize: "1rem" }}>
+            HDC Dental Clinic hadir untuk memberikan perawatan gigi terbaik yang bisa dijangkau semua kalangan di Cirebon dan sekitarnya. Kami berkomitmen memberikan layanan berkualitas tinggi dengan dokter berpengalaman dan teknologi modern.
           </p>
-          <p style={{ color: "#6B7A99", lineHeight: 1.8, fontSize: "1.05rem" }}>
-            We combine deep engineering expertise with an obsessive focus on reliability to
-            deliver platforms that just work — at any scale, in any region, under any load.
+          <p style={{ color: "rgba(255,255,255,0.6)", lineHeight: 1.8, fontSize: "0.95rem", marginBottom: "2rem" }}>
+            Dengan lebih dari 10.000 pasien yang telah mempercayakan kesehatan giginya kepada kami, HDC Dental Clinic terus berkembang dan berinovasi untuk memberikan pelayanan terbaik.
           </p>
-
-          <div style={{ display: "flex", gap: "1rem", marginTop: "2.5rem", flexWrap: "wrap" }}>
-            {["Cloud Native", "Zero Downtime", "SOC 2 Type II", "ISO 27001"].map((tag) => (
-              <span
-                key={tag}
-                style={{
-                  background: "rgba(0,212,255,0.06)",
-                  border: "1px solid rgba(0,212,255,0.15)",
-                  borderRadius: "8px",
-                  padding: "0.4rem 1rem",
-                  fontSize: "0.8rem",
-                  color: "#00D4FF",
-                  fontWeight: 500,
-                }}
-              >
-                {tag}
-              </span>
+          <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap" }}>
+            {[{ v: "10.000+", l: "Pasien Puas" }, { v: "6+", l: "Dokter Spesialis" }, { v: "2016", l: "Berdiri Sejak" }].map((s) => (
+              <div key={s.l}>
+                <div style={{ fontSize: "1.8rem", fontWeight: 800, color: "#60A5FA" }}>{s.v}</div>
+                <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.5)", marginTop: "2px" }}>{s.l}</div>
+              </div>
             ))}
           </div>
         </div>
-
-        {/* Right - Timeline */}
-        <div style={{ position: "relative" }}>
-          <div
-            style={{
-              position: "absolute",
-              left: "24px",
-              top: 0,
-              bottom: 0,
-              width: "1px",
-              background: "linear-gradient(to bottom, rgba(0,212,255,0.4), rgba(123,97,255,0.4), transparent)",
-            }}
-          />
-          {milestones.map((m, i) => (
-            <div
-              key={i}
-              style={{
-                display: "flex",
-                gap: "2rem",
-                marginBottom: "2.5rem",
-                opacity: visible ? 1 : 0,
-                transform: visible ? "translateX(0)" : "translateX(20px)",
-                transition: `all 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.1 + 0.3}s`,
-              }}
-            >
-              <div style={{ position: "relative", flexShrink: 0 }}>
-                <div
-                  style={{
-                    width: "48px",
-                    height: "48px",
-                    borderRadius: "50%",
-                    background: "#0E1118",
-                    border: "1px solid rgba(0,212,255,0.3)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    boxShadow: "0 0 20px rgba(0,212,255,0.1)",
-                  }}
-                >
-                  <span style={{ fontSize: "0.7rem", color: "#00D4FF", fontWeight: 700 }}>{m.year}</span>
-                </div>
-              </div>
-              <div style={{ paddingTop: "0.5rem" }}>
-                <div
-                  style={{
-                    fontFamily: "'Syne', sans-serif",
-                    fontWeight: 700,
-                    fontSize: "1.05rem",
-                    color: "#F0F4FF",
-                    marginBottom: "0.25rem",
-                  }}
-                >
-                  {m.title}
-                </div>
-                <div style={{ color: "#6B7A99", fontSize: "0.9rem", lineHeight: 1.6 }}>{m.desc}</div>
-              </div>
-            </div>
-          ))}
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ width: "100%", maxWidth: "420px", height: "380px", borderRadius: "20px", background: "linear-gradient(135deg, rgba(96,165,250,0.15), rgba(29,78,216,0.1))", border: "1.5px solid rgba(96,165,250,0.2)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "1rem" }}>
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+              <circle cx="36" cy="36" r="36" fill="rgba(96,165,250,0.15)" />
+              <path d="M36 12C30 12 25 15.5 22 21C19 15.5 14 12 10 12V24C10 32.5 15 37 20 39.5V56H25V38C25 35 28 32.5 31 32.5H41C44 32.5 47 35 47 38V56H52V39.5C57 37 62 32.5 62 24V12C58 12 53 15.5 50 21C47 15.5 42 12 36 12Z" fill="rgba(96,165,250,0.6)" />
+            </svg>
+            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.85rem", textAlign: "center", padding: "0 2rem" }}>Foto klinik / tim dokter</p>
+          </div>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          #about > div { grid-template-columns: 1fr !important; gap: 3rem !important; }
-        }
-      `}</style>
+      <style>{`@media(max-width:768px){section#tentang>div{grid-template-columns:1fr!important}section#tentang>div>div:last-child{display:none!important}}`}</style>
     </section>
   );
 }
