@@ -36,7 +36,7 @@ export default function Navbar() {
       <div onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         style={{ cursor: "pointer", display: "flex", alignItems: "center", flexShrink: 0 }}>
         <img
-          src="/hdc-logo-color.png"
+          src="/hdc-logo-color.svg"
           alt="HDC Health Dental Care"
           style={{ height: "52px", width: "auto", objectFit: "contain" }}
         />
