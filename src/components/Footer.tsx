@@ -2,8 +2,8 @@
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer style={{ background: "#0F172A", color: "#94A3B8", padding: "4rem 2rem 2rem" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+    <footer style={{ background: "#0F172A", color: "#94A3B8", padding: "4rem 0 2rem" }}>
+      <div className="pg-container">
         <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: "3rem", marginBottom: "3rem" }}>
           {/* Brand */}
           <div>

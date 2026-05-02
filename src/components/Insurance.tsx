@@ -9,8 +9,8 @@ const insurers = [
 
 export default function Insurance() {
   return (
-    <section style={{ background: "#ffffff", padding: "4rem 2rem", borderBottom: "1px solid #f1f5f9" }}>
-      <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}>
+    <section style={{ background: "#ffffff", padding: "4rem 0", borderBottom: "1px solid #f1f5f9" }}>
+      <div className="pg-container" style={{ textAlign: "center" }}>
         <p style={{ fontSize: "0.8rem", color: "#6B7280", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
           Perawatan gigi di HDC Cirebon bisa pace asuransimu
         </p>

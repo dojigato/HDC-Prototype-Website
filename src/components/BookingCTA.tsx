@@ -4,8 +4,8 @@ export default function BookingCTA() {
     if (typeof window !== "undefined") document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <section id="booking" style={{ background: "linear-gradient(135deg, #1D4ED8, #1E40AF)", padding: "5rem 2rem" }}>
-      <div style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center" }}>
+    <section id="booking" style={{ background: "linear-gradient(135deg, #1D4ED8, #1E40AF)", padding: "5rem 0" }}>
+      <div className="pg-container" style={{ textAlign: "center", maxWidth: "none" }}>
         <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>😁</div>
         <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 800, color: "#fff", marginBottom: "1rem" }}>
           Yuk, Booking Sekarang

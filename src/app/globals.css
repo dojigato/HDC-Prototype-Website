@@ -18,3 +18,21 @@ body {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #f1f5f9; }
 ::-webkit-scrollbar-thumb { background: #1D4ED8; border-radius: 3px; }
+
+/* ── Global page container with responsive horizontal padding ── */
+.pg-container {
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+@media (max-width: 1280px) {
+  .pg-container { padding-left: 80px; padding-right: 80px; }
+}
+
+@media (max-width: 1024px) {
+  .pg-container { padding-left: 48px; padding-right: 48px; }
+}
+
+@media (max-width: 768px) {
+  .pg-container { padding-left: 20px; padding-right: 20px; }
+}

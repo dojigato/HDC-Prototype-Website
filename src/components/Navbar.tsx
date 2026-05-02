@@ -27,7 +27,7 @@ export default function Navbar() {
     <nav style={{
       position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
       height: "72px", display: "flex", alignItems: "center",
-      justifyContent: "space-between", padding: "0 2.5rem",
+      justifyContent: "space-between", padding: "0 150px",
       background: "#ffffff",
       boxShadow: scrolled ? "0 2px 16px rgba(0,0,0,0.10)" : "0 1px 0 #e5e7eb",
       transition: "box-shadow 0.3s",
@@ -91,7 +91,10 @@ export default function Navbar() {
       )}
 
       <style>{`
+        @media (max-width: 1280px) { nav { padding-left: 80px !important; padding-right: 80px !important; } }
+        @media (max-width: 1024px) { nav { padding-left: 48px !important; padding-right: 48px !important; } }
         @media (max-width: 768px) {
+          nav { padding-left: 20px !important; padding-right: 20px !important; }
           .nav-links { display: none !important; }
           .hamburger { display: flex !important; }
         }

@@ -13,7 +13,7 @@ export default function Hero() {
       <div style={{ position: "absolute", width: "400px", height: "400px", borderRadius: "50%", background: "rgba(255,255,255,0.05)", top: "-100px", right: "20%", pointerEvents: "none" }} />
       <div style={{ position: "absolute", width: "250px", height: "250px", borderRadius: "50%", background: "rgba(255,255,255,0.06)", bottom: "10%", right: "10%", pointerEvents: "none" }} />
 
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "4rem 2rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "center", width: "100%" }}>
+      <div className="pg-container" style={{ paddingTop: "4rem", paddingBottom: "4rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", alignItems: "center", width: "100%" }}>
         {/* Left: text */}
         <div>
           <div style={{ display: "inline-block", background: "rgba(255,255,255,0.15)", borderRadius: "100px", padding: "0.4rem 1rem", marginBottom: "1.5rem", fontSize: "0.8rem", color: "#fff", fontWeight: 600, letterSpacing: "0.05em" }}>

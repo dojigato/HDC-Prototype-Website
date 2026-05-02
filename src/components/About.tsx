@@ -1,8 +1,8 @@
 "use client";
 export default function About() {
   return (
-    <section id="tentang" style={{ background: "#0F172A", padding: "5rem 2rem" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
+    <section id="tentang" style={{ background: "#0F172A", padding: "5rem 0" }}>
+      <div className="pg-container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
         <div>
           <p style={{ fontSize: "0.8rem", color: "#60A5FA", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1rem" }}>TENTANG HDC</p>
           <h2 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)", fontWeight: 800, color: "#ffffff", lineHeight: 1.2, marginBottom: "1.25rem" }}>

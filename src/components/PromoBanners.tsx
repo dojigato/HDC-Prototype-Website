@@ -1,8 +1,8 @@
 "use client";
 export default function PromoBanners() {
   return (
-    <section style={{ background: "#f8fafc", padding: "3rem 2rem" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
+    <section style={{ background: "#f8fafc", padding: "3rem 0" }}>
+      <div className="pg-container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
         {/* Banner 1 */}
         <div style={{
           background: "linear-gradient(135deg, #1D4ED8, #2563EB)",

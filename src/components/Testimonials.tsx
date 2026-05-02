@@ -9,8 +9,8 @@ const reviews = [
 
 export default function Testimonials() {
   return (
-    <section style={{ background: "#f1f5f9", padding: "5rem 2rem" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+    <section style={{ background: "#f1f5f9", padding: "5rem 0" }}>
+      <div className="pg-container">
         <div style={{ textAlign: "center", marginBottom: "3rem" }}>
           <p style={{ fontSize: "0.8rem", color: "#1D4ED8", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.75rem" }}>TESTIMONI</p>
           <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", fontWeight: 800, color: "#111827", marginBottom: "0.5rem" }}>
